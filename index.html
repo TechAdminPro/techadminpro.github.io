@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carlos Munaiz Cossio — Cybersecurity & Systems</title>
+<meta name="description" content="Carlos Munaiz Cossio — Systems Administrator & IT Security. Portfolio y CV en ciberseguridad." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0e1a;
+    --bg-2:#0e1424;
+    --panel:#121a2e;
+    --panel-2:#162039;
+    --line:#1f2c47;
+    --ink:#eef2fb;
+    --ink-soft:#aab6d4;
+    --ink-mute:#6c7a9c;
+    --blue:#3b82f6;
+    --indigo:#6366f1;
+    --violet:#a855f7;
+    --glow:rgba(99,102,241,.45);
+    --grad:linear-gradient(120deg,#3b82f6 0%,#6366f1 45%,#a855f7 100%);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ambient grid + glow */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(900px 500px at 80% -5%, rgba(168,85,247,.16), transparent 60%),
+      radial-gradient(800px 500px at 0% 0%, rgba(59,130,246,.14), transparent 55%),
+      var(--bg);
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:-1;opacity:.4;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);
+            mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,14,26,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px var(--glow)}
+  .brand b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--ink-soft);transition:color .2s;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .lang{
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+    border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;
+  }
+  .lang button{
+    background:transparent;border:none;color:var(--ink-mute);
+    padding:6px 11px;cursor:pointer;font:inherit;transition:all .2s;
+  }
+  .lang button.on{background:var(--grad);color:#fff}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:7px 9px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:84px 0 64px;position:relative}
+  .term{
+    font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--violet);
+    display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;
+    border:1px solid var(--line);background:var(--panel);
+    padding:7px 14px;border-radius:999px;
+  }
+  .term .blink{width:7px;height:14px;background:var(--violet);display:inline-block;animation:blink 1.1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(38px,7vw,68px);line-height:1.04;letter-spacing:-1.5px;margin-bottom:18px;
+  }
+  h1 .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .role{
+    font-family:'JetBrains Mono',monospace;font-size:clamp(14px,2.4vw,18px);
+    color:var(--ink-soft);margin-bottom:24px;font-weight:500;
+  }
+  .role .typed{color:var(--blue)}
+  .lede{max-width:620px;color:var(--ink-soft);font-size:17px;margin-bottom:32px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:600;font-size:15px;padding:13px 22px;border-radius:11px;
+    cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .25s;
+  }
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 28px -8px var(--glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+  .btn-ghost{border-color:var(--line);background:var(--panel);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--indigo);transform:translateY(-2px)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:46px;padding-top:28px;border-top:1px solid var(--line)}
+  .hero-meta div{font-size:13px;color:var(--ink-mute)}
+  .hero-meta b{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;color:var(--ink);font-weight:700;line-height:1.1}
+  .hero-meta b .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- SECTION ---------- */
+  section{padding:72px 0;position:relative}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--violet);margin-bottom:12px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--grad)}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);letter-spacing:-1px;margin-bottom:18px}
+  .section-lede{color:var(--ink-soft);max-width:600px;margin-bottom:42px;font-size:16px}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+  .about-text p{color:var(--ink-soft);margin-bottom:16px}
+  .about-text p strong{color:var(--ink)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .quick h3{font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--ink-mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+  .quick ul{list-style:none}
+  .quick li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+  .quick li:last-child{border-bottom:none}
+  .quick li span{color:var(--ink);font-weight:600;min-width:96px;font-family:'JetBrains Mono',monospace;font-size:13px}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .skill-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:border-color .25s,transform .25s}
+  .skill-card:hover{border-color:var(--indigo);transform:translateY(-4px)}
+  .skill-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .skill-card h3 i{font-style:normal;font-size:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink-soft);padding:5px 10px;border-radius:7px}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .proj{
+    background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:26px;display:flex;flex-direction:column;position:relative;overflow:hidden;
+    transition:border-color .25s,transform .25s;
+  }
+  .proj::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s;mix-blend-mode:soft-light}
+  .proj:hover{border-color:var(--indigo);transform:translateY(-4px)}
+  .proj:hover::before{opacity:.06}
+  .proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px}
+  .proj-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:7px;font-weight:700;white-space:nowrap}
+  .t-red{background:rgba(239,68,68,.13);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+  .t-blue{background:rgba(59,130,246,.13);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
+  .t-violet{background:rgba(168,85,247,.13);color:#c084fc;border:1px solid rgba(168,85,247,.25)}
+  .t-green{background:rgba(34,197,94,.13);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+  .proj h3{font-family:'Space Grotesk',sans-serif;font-size:21px;margin-bottom:10px;line-height:1.2}
+  .proj p{color:var(--ink-soft);font-size:14.5px;margin-bottom:18px;flex:1}
+  .proj-stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+  .proj-stack .chip{font-size:11px;padding:4px 9px}
+  .proj-link{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;
+    color:var(--ink);display:inline-flex;align-items:center;gap:8px;
+    align-self:flex-start;transition:gap .2s,color .2s;
+  }
+  .proj-link:hover{color:var(--violet);gap:12px}
+  .proj-icon{font-size:24px;margin-bottom:14px}
+
+  /* ---------- TIMELINE ---------- */
+  .tl{position:relative;padding-left:30px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--indigo),transparent)}
+  .tl-item{position:relative;padding-bottom:34px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-30px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--indigo);box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+  .tl-when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--violet);margin-bottom:4px}
+  .tl-item h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:3px}
+  .tl-item .org{font-size:13px;color:var(--ink-mute);margin-bottom:8px}
+  .tl-item p{color:var(--ink-soft);font-size:14px}
+
+  /* certs */
+  .certs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+  .cert{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+  .cert .cn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;margin-bottom:5px}
+  .cert .cs{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.5px}
+  .cert .cs.prog{color:#fbbf24}
+  .cert .cs.done{color:#4ade80}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .contact-info p{color:var(--ink-soft);margin-bottom:24px}
+  .contact-links{display:flex;flex-direction:column;gap:12px}
+  .clink{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;transition:border-color .2s,transform .2s}
+  .clink:hover{border-color:var(--indigo);transform:translateX(4px)}
+  .clink .ci{font-size:20px;width:24px;text-align:center}
+  .clink .ct{font-size:11px;color:var(--ink-mute);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px}
+  .clink .cv{font-size:14px;color:var(--ink);font-weight:500}
+  form{display:flex;flex-direction:column;gap:16px}
+  .field label{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:7px;font-weight:500}
+  .field input,.field textarea{
+    width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:11px;
+    padding:13px 15px;color:var(--ink);font:inherit;font-size:15px;transition:border-color .2s,box-shadow .2s;resize:vertical;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+  .form-note{font-size:13px;color:var(--ink-mute);min-height:18px}
+  .form-note.ok{color:#4ade80}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center}
+  footer p{font-size:13px;color:var(--ink-mute)}
+  footer .ft-brand{font-family:'JetBrains Mono',monospace;color:var(--ink-soft);margin-bottom:8px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:26px}
+    .skills-grid{grid-template-columns:1fr}
+    .proj-grid{grid-template-columns:1fr}
+    .certs{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:680px){
+    .nav-links{
+      display:none;position:absolute;top:64px;left:0;right:0;
+      flex-direction:column;background:var(--bg-2);border-bottom:1px solid var(--line);
+      padding:18px 22px;gap:18px;
+    }
+    .nav-links.open{display:flex}
+    .menu-btn{display:block}
+    .hero{padding:54px 0 44px}
+    .hero-meta{gap:20px}
+    section{padding:54px 0}
+    .cta-row{width:100%}
+    .btn{flex:1;justify-content:center}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="dot"></span> Carlos Munaiz <b>· Cybersecurity</b></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about" data-i="nav_about">Sobre mí</a>
+      <a href="#skills" data-i="nav_skills">Skills</a>
+      <a href="#projects" data-i="nav_projects">Proyectos</a>
+      <a href="#path" data-i="nav_path">Trayectoria</a>
+      <a href="#contact" data-i="nav_contact">Contacto</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="es" class="on" onclick="setLang('es')">ES</button>
+        <button id="en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('open')" aria-label="Menu">≡</button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:64px">
+    <span class="term"><span class="blink"></span><span data-i="hero_term">root@carlos:~$ whoami</span></span>
+    <h1 data-i="hero_h1">Carlos Munaiz <span class="accent">Cossio</span></h1>
+    <p class="role"><span data-i="hero_role">Junior Systems &amp; Security</span> · <span class="typed" data-i="hero_role2">IT Security &amp; Pentesting</span></p>
+    <p class="lede" data-i="hero_lede">Recién graduado en administración de sistemas y ciberseguridad. Despliego y bastiono infraestructura Linux/Windows en mis laboratorios, y practico técnicas de seguridad ofensiva y defensiva. Busco mi primer rol centrado en seguridad donde apoyarme en mi base técnica y seguir creciendo.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="Carlos_Munaiz_CV_EN.pdf" download>
+        <span>⬇</span><span data-i="hero_cv">Descargar CV (PDF)</span>
+      </a>
+      <a class="btn btn-ghost" href="#projects"><span data-i="hero_projects">Ver proyectos</span><span>→</span></a>
+    </div>
+    <div class="hero-meta">
+      <div><b><span class="g">4</span></b><span data-i="meta_projects">Proyectos de seguridad</span></div>
+      <div><b>ASIR<span class="g">+</span>MSc</b><span data-i="meta_edu">Formación oficial</span></div>
+      <div><b>CCNA<span class="g">·</span>Sec+</b><span data-i="meta_certs">Certificaciones</span></div>
+      <div><b>C1</b><span data-i="meta_lang">Inglés avanzado</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="eyebrow" data-i="about_eyebrow">01 — Quién soy</div>
+    <h2 data-i="about_h2">Doble perfil: sistemas y seguridad</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p data-i="about_p1">Soy <strong>Carlos Munaiz Cossio</strong>, recién graduado con una base doble poco habitual: administración de sistemas y ciberseguridad ofensiva y defensiva. En mis laboratorios he desplegado y bastionado infraestructura real en Linux y Windows, y dedico mi tiempo a entender cómo se rompen y cómo se protegen los sistemas.</p>
+        <p data-i="about_p2">Terminé el ciclo superior <strong>ASIR</strong> y un <strong>Máster en Ciberseguridad</strong> en la Fundación San Pablo CEU. Documento cada proyecto en GitHub y ahora mismo refuerzo mi formación con AWS, Python y plataformas como TryHackMe. Mi objetivo es claro: aportar valor en un equipo de seguridad, ya sea en un SOC, en pentesting o en bastionado de infraestructura.</p>
+        <p data-i="about_p3">Tengo <strong>ganas de emprender</strong> y de seguir aprendiendo lo importante de mi campo. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.</p>
+      </div>
+      <div class="card quick reveal">
+        <h3 data-i="quick_h3">// quick_facts</h3>
+        <ul>
+          <li><span data-i="quick_loc">Ubicación</span> Madrid, España</li>
+          <li><span data-i="quick_edu">Formación</span> ASIR + MSc Ciberseguridad</li>
+          <li><span data-i="quick_focus">Foco</span> <span data-i="quick_focus_v">Seguridad ofensiva/defensiva</span></li>
+          <li><span data-i="quick_lang">Idiomas</span> <span data-i="quick_lang_v">Español (nativo), Inglés C1</span></li>
+          <li><span data-i="quick_avail">Estado</span> <span data-i="quick_avail_v">Disponible para incorporación</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="eyebrow" data-i="skills_eyebrow">02 — Stack técnico</div>
+    <h2 data-i="skills_h2">Herramientas con las que trabajo</h2>
+    <p class="section-lede" data-i="skills_lede">Del bastionado de servidores al pentesting web, pasando por redes y entornos cloud de laboratorio.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3><i>🖥️</i> <span data-i="sk1_h">Sistemas &amp; Redes</span></h3>
+        <div class="chips">
+          <span class="chip">Linux</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">VMware</span><span class="chip">VirtualBox</span><span class="chip">TCP/IP</span><span class="chip">DNS/DHCP</span><span class="chip">VPN</span><span class="chip">Firewall</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><i>🛡️</i> <span data-i="sk2_h">Ciberseguridad</span></h3>
+        <div class="chips">
+          <span class="chip">Kali Linux</span><span class="chip">Nmap</span><span class="chip">Metasploit</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">OWASP Top 10</span><span class="chip">Web Pentesting</span><span class="chip">iptables</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><i>📈</i> <span data-i="sk3_h">Aprendiendo ahora</span></h3>
+        <div class="chips">
+          <span class="chip">AWS (formación)</span><span class="chip">Python</span><span class="chip">Docker</span><span class="chip">TryHackMe</span><span class="chip">Bash Scripting</span><span class="chip">Git/GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="eyebrow" data-i="proj_eyebrow">03 — Proyectos</div>
+    <h2 data-i="proj_h2">Laboratorios y auditorías</h2>
+    <p class="section-lede" data-i="proj_lede">Trabajo práctico documentado en GitHub. Cada proyecto incluye evidencias, comandos y conclusiones.</p>
+    <div class="proj-grid">
+
+      <article class="proj reveal" data-href="https://github.com/TechAdminPro/linux-hardening-lab" onclick="openRepo(event,'https://github.com/TechAdminPro/linux-hardening-lab')" style="cursor:pointer">
+        <div class="proj-icon">🔐</div>
+        <div class="proj-top">
+          <h3 data-i="p1_h">Linux Hardening Lab</h3>
+          <span class="proj-tag t-blue">Hardening</span>
+        </div>
+        <p data-i="p1_p">Bastionado completo de un servidor AlmaLinux auditado desde Kali: configuración segura de OpenSSH, SFTP con chroot, permisos avanzados con ACL, firewall con iptables y mitigación de ICMP. Verificación con Nmap, tcpdump y Wireshark.</p>
+        <div class="proj-stack"><span class="chip">AlmaLinux</span><span class="chip">OpenSSH</span><span class="chip">iptables</span><span class="chip">ACL</span><span class="chip">Nmap</span></div>
+        <a class="proj-link" href="https://github.com/TechAdminPro/linux-hardening-lab" target="_blank" rel="noopener">&lt;/&gt; <span data-i="view_gh">Ver en GitHub</span> →</a>
+      </article>
+
+      <article class="proj reveal" data-href="https://github.com/TechAdminPro/web-security-audit-lab" onclick="openRepo(event,'https://github.com/TechAdminPro/web-security-audit-lab')" style="cursor:pointer">
+        <div class="proj-icon">🌐</div>
+        <div class="proj-top">
+          <h3 data-i="p2_h">Web Security Audit Lab</h3>
+          <span class="proj-tag t-red">Pentesting</span>
+        </div>
+        <p data-i="p2_p">Auditoría web ofensiva sobre DVWA siguiendo metodología profesional. Identificación y explotación controlada de 6 vulnerabilidades (Brute Force, Command/SQL Injection, File Inclusion/Upload, criptografía débil), clasificadas con OWASP Top 10 y CVSS.</p>
+        <div class="proj-stack"><span class="chip">DVWA</span><span class="chip">Burp Suite</span><span class="chip">OWASP</span><span class="chip">CVSS</span><span class="chip">SQLi</span></div>
+        <a class="proj-link" href="https://github.com/TechAdminPro/web-security-audit-lab" target="_blank" rel="noopener">&lt;/&gt; <span data-i="view_gh">Ver en GitHub</span> →</a>
+      </article>
+
+      <article class="proj reveal" data-href="https://github.com/TechAdminPro/badusb-endpoint-analysis" onclick="openRepo(event,'https://github.com/TechAdminPro/badusb-endpoint-analysis')" style="cursor:pointer">
+        <div class="proj-icon">🔌</div>
+        <div class="proj-top">
+          <h3 data-i="p3_h">BadUSB Endpoint Analysis</h3>
+          <span class="proj-tag t-violet">TFM</span>
+        </div>
+        <p data-i="p3_p">Trabajo de Fin de Máster: análisis de ataques físicos BadUSB con Flipper Zero (HID injection) sobre Windows 11. Evaluación de la respuesta de Microsoft Defender y propuesta de mitigaciones técnicas y organizativas para entornos corporativos.</p>
+        <div class="proj-stack"><span class="chip">Flipper Zero</span><span class="chip">HID</span><span class="chip">Windows 11</span><span class="chip">Defender</span><span class="chip">GPO</span></div>
+        <a class="proj-link" href="https://github.com/TechAdminPro/badusb-endpoint-analysis" target="_blank" rel="noopener">&lt;/&gt; <span data-i="view_gh">Ver en GitHub</span> →</a>
+      </article>
+
+      <article class="proj reveal" data-href="https://github.com/TechAdminPro/syn-flood-lab" onclick="openRepo(event,'https://github.com/TechAdminPro/syn-flood-lab')" style="cursor:pointer">
+        <div class="proj-icon">⚡</div>
+        <div class="proj-top">
+          <h3 data-i="p4_h">SYN Flood (DDoS) Lab</h3>
+          <span class="proj-tag t-green">Network Sec</span>
+        </div>
+        <p data-i="p4_p">Simulación de un ataque de denegación de servicio SYN Flood con hping3 contra AlmaLinux, captura y análisis del tráfico con Wireshark, y aplicación de mitigaciones: SYN cookies, reverse path filtering y limitación de conexiones con iptables.</p>
+        <div class="proj-stack"><span class="chip">hping3</span><span class="chip">Wireshark</span><span class="chip">SYN Cookies</span><span class="chip">iptables</span><span class="chip">sysctl</span></div>
+        <a class="proj-link" href="https://github.com/TechAdminPro/syn-flood-lab" target="_blank" rel="noopener">&lt;/&gt; <span data-i="view_gh">Ver en GitHub</span> →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PATH -->
+  <section id="path">
+    <div class="eyebrow" data-i="path_eyebrow">04 — Trayectoria</div>
+    <h2 data-i="path_h2">Experiencia y formación</h2>
+    <div class="about-grid">
+      <div class="tl reveal">
+        <div class="tl-item">
+          <div class="tl-when">Mar 2025 — Jun 2025</div>
+          <h3 data-i="exp1_h">Systems Administrator (Prácticas)</h3>
+          <div class="org">Nubemedia</div>
+          <p data-i="exp1_p">Despliegue y mantenimiento de servidores web Apache/Nginx en Linux (−20% en tiempos de respuesta), gestión y bastionado de entornos WordPress, mejoras de SEO técnico y documentación de procedimientos.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Oct 2023 — Mar 2024</div>
+          <h3 data-i="exp2_h">Security Assistant</h3>
+          <div class="org">Arsel Business S.L.</div>
+          <p data-i="exp2_p">Control de accesos y protocolos de seguridad física con cero incidentes. Coordinación de respuesta a incidentes y toma de decisiones rápida bajo presión — competencias trasladables a operaciones SOC.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">2017 — <span data-i="present">Actualidad</span></div>
+          <h3 data-i="exp3_h">Hostelería (varios)</h3>
+          <div class="org" data-i="exp3_org">Varios establecimientos</div>
+          <p data-i="exp3_p">Atención al cliente en entornos exigentes gestionando múltiples tareas en paralelo. Resiliencia, comunicación y gestión del estrés.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;margin-bottom:14px" data-i="edu_h">🎓 Formación</h3>
+          <div class="tl-item" style="padding-bottom:18px">
+            <div class="tl-when">2025 — 2026</div>
+            <h3 style="font-size:16px" data-i="edu1_h">Máster en Ciberseguridad</h3>
+            <div class="org">Fundación San Pablo CEU</div>
+          </div>
+          <div class="tl-item" style="padding-bottom:0">
+            <div class="tl-when">2025</div>
+            <h3 style="font-size:16px" data-i="edu2_h">Técnico Superior ASIR</h3>
+            <div class="org" data-i="edu2_org">Administración de Sistemas y Redes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="certs">
+      <div class="cert reveal"><div class="cn">Cisco CCNA</div><div class="cs done" data-i="cert1">Networking</div></div>
+      <div class="cert reveal"><div class="cn">CompTIA Security+</div><div class="cs prog" data-i="cert2">En curso · 2026</div></div>
+      <div class="cert reveal"><div class="cn">Hack4U Academy</div><div class="cs prog" data-i="cert3">Pentesting · En curso</div></div>
+      <div class="cert reveal"><div class="cn">English C1</div><div class="cs done" data-i="cert4">Avanzado</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="eyebrow" data-i="contact_eyebrow">05 — Contacto</div>
+    <h2 data-i="contact_h2">Hablemos</h2>
+    <p class="section-lede" data-i="contact_lede">¿Buscas a alguien con doble perfil de sistemas y seguridad? Escríbeme y respondo rápido.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p data-i="contact_p">Disponible para roles en SOC, pentesting, bastionado de infraestructura o seguridad IT en general. También abierto a proyectos y colaboraciones.</p>
+        <div class="contact-links">
+          <a class="clink" href="mailto:carlosmunaizcossio@gmail.com">
+            <span class="ci">✉️</span><span><span class="ct">Email</span><br><span class="cv">carlosmunaizcossio@gmail.com</span></span>
+          </a>
+          <a class="clink" href="tel:+34648221519">
+            <span class="ci">📞</span><span><span class="ct">Teléfono</span><br><span class="cv">+34 648 22 15 19</span></span>
+          </a>
+          <a class="clink" href="https://linkedin.com/in/carlosmunaiz" target="_blank" rel="noopener">
+            <span class="ci">in</span><span><span class="ct">LinkedIn</span><br><span class="cv">/in/carlosmunaiz</span></span>
+          </a>
+          <a class="clink" href="https://github.com/TechAdminPro" target="_blank" rel="noopener">
+            <span class="ci">⌨️</span><span><span class="ct">GitHub</span><br><span class="cv">/TechAdminPro</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <form id="cform" onsubmit="return sendForm(event)">
+          <div class="field">
+            <label for="f-name" data-i="f_name">Nombre</label>
+            <input id="f-name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="f-email" data-i="f_email">Tu email</label>
+            <input id="f-email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="f-msg" data-i="f_msg">Mensaje</label>
+            <textarea id="f-msg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="justify-content:center" data-i="f_send">Enviar mensaje</button>
+          <p class="form-note" id="fnote"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="ft-brand">Carlos Munaiz Cossio — Systems Administrator &amp; IT Security</p>
+    <p data-i="footer">© 2026 Carlos Munaiz Cossio · Madrid, España · <span data-i="footer_built">Hecho con foco en seguridad</span></p>
+  </div>
+</footer>
+
+<script>
+/* ---------- i18n ---------- */
+const i18n = {
+  es:{
+    nav_about:"Sobre mí",nav_skills:"Skills",nav_projects:"Proyectos",nav_path:"Trayectoria",nav_contact:"Contacto",
+    hero_term:"root@carlos:~$ whoami",hero_h1:'Carlos Munaiz <span class="accent">Cossio</span>',
+    hero_role:"Junior Sistemas &amp; Seguridad",hero_role2:"Seguridad IT &amp; Pentesting",
+    hero_lede:"Recién graduado en administración de sistemas y ciberseguridad. Despliego y bastiono infraestructura Linux/Windows en mis laboratorios, y practico técnicas de seguridad ofensiva y defensiva. Busco mi primer rol centrado en seguridad donde apoyarme en mi base técnica y seguir creciendo.",
+    hero_cv:"Descargar CV (PDF)",hero_projects:"Ver proyectos",
+    meta_projects:"Proyectos de seguridad",meta_edu:"Formación oficial",meta_certs:"Certificaciones",meta_lang:"Inglés avanzado",
+    about_eyebrow:"01 — Quién soy",about_h2:"Doble perfil: sistemas y seguridad",
+    about_p1:"Soy <strong>Carlos Munaiz Cossio</strong>, recién graduado con una base doble poco habitual: administración de sistemas y ciberseguridad ofensiva y defensiva. En mis laboratorios he desplegado y bastionado infraestructura real en Linux y Windows, y dedico mi tiempo a entender cómo se rompen y cómo se protegen los sistemas.",
+    about_p2:"Terminé el ciclo superior <strong>ASIR</strong> y un <strong>Máster en Ciberseguridad</strong> en la Fundación San Pablo CEU. Documento cada proyecto en GitHub y ahora mismo refuerzo mi formación con AWS, Python y plataformas como TryHackMe. Mi objetivo es claro: aportar valor en un equipo de seguridad, ya sea en un SOC, en pentesting o en bastionado de infraestructura.",
+    about_p3:"Tengo <strong>ganas de emprender</strong> y de seguir aprendiendo lo importante de mi campo. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.",
+    quick_h3:"// quick_facts",quick_loc:"Ubicación",quick_edu:"Formación",quick_focus:"Foco",quick_focus_v:"Seguridad ofensiva/defensiva",
+    quick_lang:"Idiomas",quick_lang_v:"Español (nativo), Inglés C1",quick_avail:"Estado",quick_avail_v:"Disponible para incorporación",
+    skills_eyebrow:"02 — Stack técnico",skills_h2:"Herramientas con las que trabajo",
+    skills_lede:"Del bastionado de servidores al pentesting web, pasando por redes y entornos cloud de laboratorio.",
+    sk1_h:"Sistemas &amp; Redes",sk2_h:"Ciberseguridad",sk3_h:"Aprendiendo ahora",
+    proj_eyebrow:"03 — Proyectos",proj_h2:"Laboratorios y auditorías",
+    proj_lede:"Trabajo práctico documentado en GitHub. Cada proyecto incluye evidencias, comandos y conclusiones.",
+    p1_h:"Linux Hardening Lab",p1_p:"Bastionado completo de un servidor AlmaLinux auditado desde Kali: configuración segura de OpenSSH, SFTP con chroot, permisos avanzados con ACL, firewall con iptables y mitigación de ICMP. Verificación con Nmap, tcpdump y Wireshark.",
+    p2_h:"Web Security Audit Lab",p2_p:"Auditoría web ofensiva sobre DVWA siguiendo metodología profesional. Identificación y explotación controlada de 6 vulnerabilidades (Brute Force, Command/SQL Injection, File Inclusion/Upload, criptografía débil), clasificadas con OWASP Top 10 y CVSS.",
+    p3_h:"BadUSB Endpoint Analysis",p3_p:"Trabajo de Fin de Máster: análisis de ataques físicos BadUSB con Flipper Zero (HID injection) sobre Windows 11. Evaluación de la respuesta de Microsoft Defender y propuesta de mitigaciones técnicas y organizativas para entornos corporativos.",
+    p4_h:"SYN Flood (DDoS) Lab",p4_p:"Simulación de un ataque de denegación de servicio SYN Flood con hping3 contra AlmaLinux, captura y análisis del tráfico con Wireshark, y aplicación de mitigaciones: SYN cookies, reverse path filtering y limitación de conexiones con iptables.",
+    view_gh:"Ver en GitHub",
+    path_eyebrow:"04 — Trayectoria",path_h2:"Experiencia y formación",
+    exp1_h:"Systems Administrator (Prácticas)",exp1_p:"Despliegue y mantenimiento de servidores web Apache/Nginx en Linux (−20% en tiempos de respuesta), gestión y bastionado de entornos WordPress, mejoras de SEO técnico y documentación de procedimientos.",
+    exp2_h:"Security Assistant",exp2_p:"Control de accesos y protocolos de seguridad física con cero incidentes. Coordinación de respuesta a incidentes y toma de decisiones rápida bajo presión — competencias trasladables a operaciones SOC.",
+    exp3_h:"Hostelería (varios)",exp3_org:"Varios establecimientos",exp3_p:"Atención al cliente en entornos exigentes gestionando múltiples tareas en paralelo. Resiliencia, comunicación y gestión del estrés.",present:"Actualidad",
+    edu_h:"🎓 Formación",edu1_h:"Máster en Ciberseguridad",edu2_h:"Técnico Superior ASIR",edu2_org:"Administración de Sistemas y Redes",
+    cert1:"Networking",cert2:"En curso · 2026",cert3:"Pentesting · En curso",cert4:"Avanzado",
+    contact_eyebrow:"05 — Contacto",contact_h2:"Hablemos",contact_lede:"¿Buscas a alguien con doble perfil de sistemas y seguridad? Escríbeme y respondo rápido.",
+    contact_p:"Disponible para roles en SOC, pentesting, bastionado de infraestructura o seguridad IT en general. También abierto a proyectos y colaboraciones.",
+    f_name:"Nombre",f_email:"Tu email",f_msg:"Mensaje",f_send:"Enviar mensaje",
+    footer:"© 2026 Carlos Munaiz Cossio · Madrid, España · ",footer_built:"Hecho con foco en seguridad"
+  },
+  en:{
+    nav_about:"About",nav_skills:"Skills",nav_projects:"Projects",nav_path:"Path",nav_contact:"Contact",
+    hero_term:"root@carlos:~$ whoami",hero_h1:'Carlos Munaiz <span class="accent">Cossio</span>',
+    hero_role:"Junior Systems &amp; Security",hero_role2:"IT Security &amp; Pentesting",
+    hero_lede:"Recent graduate in systems administration and cybersecurity. I deploy and harden Linux/Windows infrastructure in my labs and practice offensive and defensive security techniques. Looking for my first security-focused role where I can build on my technical foundation and keep growing.",
+    hero_cv:"Download CV (PDF)",hero_projects:"View projects",
+    meta_projects:"Security projects",meta_edu:"Formal education",meta_certs:"Certifications",meta_lang:"Advanced English",
+    about_eyebrow:"01 — Who I am",about_h2:"Dual profile: systems & security",
+    about_p1:"I'm <strong>Carlos Munaiz Cossio</strong>, a recent graduate with an uncommon dual foundation: systems administration and offensive/defensive cybersecurity. In my labs I've deployed and hardened real Linux and Windows infrastructure, and I spend my time understanding how systems break and how they're protected.",
+    about_p2:"I completed the <strong>ASIR</strong> higher diploma and a <strong>Master's in Cybersecurity</strong> at Fundación San Pablo CEU. I document every project on GitHub and I'm currently strengthening my training with AWS, Python and platforms like TryHackMe. My goal is clear: to add value to a security team — whether in a SOC, in pentesting or in infrastructure hardening.",
+    about_p3:"I have an <strong>entrepreneurial drive</strong> and want to keep learning what truly matters in my field. I'm not satisfied with just using tools: I want to understand what happens underneath.",
+    quick_h3:"// quick_facts",quick_loc:"Location",quick_edu:"Education",quick_focus:"Focus",quick_focus_v:"Offensive/defensive security",
+    quick_lang:"Languages",quick_lang_v:"Spanish (native), English C1",quick_avail:"Status",quick_avail_v:"Available to start",
+    skills_eyebrow:"02 — Tech stack",skills_h2:"Tools I work with",
+    skills_lede:"From server hardening to web pentesting, plus networking and cloud lab environments.",
+    sk1_h:"Systems &amp; Networking",sk2_h:"Cybersecurity",sk3_h:"Currently learning",
+    proj_eyebrow:"03 — Projects",proj_h2:"Labs & audits",
+    proj_lede:"Hands-on work documented on GitHub. Each project includes evidence, commands and conclusions.",
+    p1_h:"Linux Hardening Lab",p1_p:"Full hardening of an AlmaLinux server audited from Kali: secure OpenSSH configuration, SFTP with chroot, advanced ACL permissions, iptables firewall and ICMP mitigation. Verified with Nmap, tcpdump and Wireshark.",
+    p2_h:"Web Security Audit Lab",p2_p:"Offensive web audit of DVWA following a professional methodology. Identification and controlled exploitation of 6 vulnerabilities (Brute Force, Command/SQL Injection, File Inclusion/Upload, weak cryptography), mapped with OWASP Top 10 and CVSS.",
+    p3_h:"BadUSB Endpoint Analysis",p3_p:"Master's thesis: analysis of physical BadUSB attacks with a Flipper Zero (HID injection) on Windows 11. Evaluation of Microsoft Defender's response and a proposal of technical and organizational mitigations for corporate environments.",
+    p4_h:"SYN Flood (DDoS) Lab",p4_p:"Simulation of a SYN Flood denial-of-service attack with hping3 against AlmaLinux, traffic capture and analysis with Wireshark, and mitigations: SYN cookies, reverse path filtering and connection limiting with iptables.",
+    view_gh:"View on GitHub",
+    path_eyebrow:"04 — Path",path_h2:"Experience & education",
+    exp1_h:"Systems Administrator (Internship)",exp1_p:"Deployed and maintained Apache/Nginx web servers on Linux (−20% response times), managed and hardened WordPress environments, implemented technical SEO improvements and documented procedures.",
+    exp2_h:"Security Assistant",exp2_p:"Access control and physical security protocols with zero incidents. Incident response coordination and fast decision-making under pressure — skills transferable to SOC operations.",
+    exp3_h:"Hospitality (various)",exp3_org:"Various establishments",exp3_p:"Customer service in high-demand environments managing multiple concurrent tasks. Resilience, communication and stress management.",present:"Present",
+    edu_h:"🎓 Education",edu1_h:"Master's in Cybersecurity",edu2_h:"Higher Technician — ASIR",edu2_org:"Network & Systems Administration",
+    cert1:"Networking",cert2:"In progress · 2026",cert3:"Pentesting · In progress",cert4:"Advanced",
+    contact_eyebrow:"05 — Contact",contact_h2:"Let's talk",contact_lede:"Looking for someone with a dual systems-and-security profile? Drop me a line — I reply fast.",
+    contact_p:"Available for roles in SOC, pentesting, infrastructure hardening or IT security in general. Also open to projects and collaborations.",
+    f_name:"Name",f_email:"Your email",f_msg:"Message",f_send:"Send message",
+    footer:"© 2026 Carlos Munaiz Cossio · Madrid, Spain · ",footer_built:"Built with a security mindset"
+  }
+};
+
+let curLang = 'es';
+function setLang(l){
+  curLang = l;
+  document.documentElement.lang = l;
+  document.getElementById('es').classList.toggle('on', l==='es');
+  document.getElementById('en').classList.toggle('on', l==='en');
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k = el.getAttribute('data-i');
+    if(i18n[l][k] !== undefined) el.innerHTML = i18n[l][k];
+  });
+  // update form note language if shown
+  const note = document.getElementById('fnote');
+  if(note.dataset.state) note.textContent = formMsg(note.dataset.state);
+}
+
+/* ---------- contact form ---------- */
+function formMsg(state){
+  const t = {
+    es:{ok:"✓ ¡Gracias! Se abrirá tu cliente de correo para enviar el mensaje.",err:"Revisa los campos antes de enviar."},
+    en:{ok:"✓ Thanks! Your email client will open to send the message.",err:"Please check the fields before sending."}
+  };
+  return t[curLang][state];
+}
+function sendForm(e){
+  e.preventDefault();
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+  const note = document.getElementById('fnote');
+  if(!name||!email||!msg){
+    note.dataset.state='err';note.classList.remove('ok');note.textContent=formMsg('err');
+    return false;
+  }
+  const subject = encodeURIComponent(`[Web CV] Mensaje de ${name}`);
+  const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:carlosmunaizcossio@gmail.com?subject=${subject}&body=${body}`;
+  note.dataset.state='ok';note.classList.add('ok');note.textContent=formMsg('ok');
+  document.getElementById('cform').reset();
+  return false;
+}
+
+/* ---------- open project repo (whole card clickable) ---------- */
+function openRepo(e, url){
+  // if the click was on the inner <a>, let the link handle it (avoid double open)
+  if(e.target.closest('a.proj-link')) return;
+  window.open(url, '_blank', 'noopener');
+}
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* close mobile menu on link click */
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.remove('open');
+}));
+</script>
+</body>
+</html>
