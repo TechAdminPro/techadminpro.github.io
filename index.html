@@ -280,7 +280,7 @@
   <section class="hero" style="padding-top:64px">
     <span class="term"><span class="blink"></span><span data-i="hero_term">root@carlos:~$ whoami</span></span>
     <h1 data-i="hero_h1">Carlos Munaiz <span class="accent">Cossio</span></h1>
-    <p class="role"><span data-i="hero_role">Junior Systems &amp; Security</span> · <span class="typed" data-i="hero_role2">IT Security &amp; Pentesting</span></p>
+    <p class="role"><span data-i="hero_role">Junior Systems &amp; Security</span> · <span class="typed" data-i="hero_role2">SOC &amp; Blue Team</span></p>
     <p class="lede" data-i="hero_lede">Recién graduado en administración de sistemas y ciberseguridad. Despliego y bastiono infraestructura Linux/Windows en mis laboratorios, y practico técnicas de seguridad ofensiva y defensiva. Busco mi primer rol centrado en seguridad donde apoyarme en mi base técnica y seguir creciendo.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="Carlos_Munaiz_CV_EN.pdf" download>
@@ -289,7 +289,7 @@
       <a class="btn btn-ghost" href="#projects"><span data-i="hero_projects">Ver proyectos</span><span>→</span></a>
     </div>
     <div class="hero-meta">
-      <div><b><span class="g">4</span></b><span data-i="meta_projects">Proyectos de seguridad</span></div>
+      <div><b><span class="g">5</span></b><span data-i="meta_projects">Proyectos de seguridad</span></div>
       <div><b>ASIR<span class="g">+</span>MSc</b><span data-i="meta_edu">Formación oficial</span></div>
       <div><b>CCNA<span class="g">·</span>Sec+</b><span data-i="meta_certs">Certificaciones</span></div>
       <div><b>C1</b><span data-i="meta_lang">Inglés avanzado</span></div>
@@ -304,7 +304,7 @@
       <div class="about-text reveal">
         <p data-i="about_p1">Soy <strong>Carlos Munaiz Cossio</strong>, recién graduado con una base doble poco habitual: administración de sistemas y ciberseguridad ofensiva y defensiva. En mis laboratorios he desplegado y bastionado infraestructura real en Linux y Windows, y dedico mi tiempo a entender cómo se rompen y cómo se protegen los sistemas.</p>
         <p data-i="about_p2">Terminé el ciclo superior <strong>ASIR</strong> y un <strong>Máster en Ciberseguridad</strong> en la Fundación San Pablo CEU. Documento cada proyecto en GitHub y ahora mismo refuerzo mi formación con AWS, Python y plataformas como TryHackMe. Mi objetivo es claro: aportar valor en un equipo de seguridad, ya sea en un SOC, en pentesting o en bastionado de infraestructura.</p>
-        <p data-i="about_p3">Tengo <strong>ganas de emprender</strong> y de seguir aprendiendo lo importante de mi campo. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.</p>
+        <p data-i="about_p3">Donde más disfruto es en el lado defensivo: <strong>detección, análisis de logs y respuesta a incidentes</strong>. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.</p>
       </div>
       <div class="card quick reveal">
         <h3 data-i="quick_h3">// quick_facts</h3>
@@ -334,7 +334,7 @@
       <div class="skill-card reveal">
         <h3><i>🛡️</i> <span data-i="sk2_h">Ciberseguridad</span></h3>
         <div class="chips">
-          <span class="chip">Kali Linux</span><span class="chip">Nmap</span><span class="chip">Metasploit</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">OWASP Top 10</span><span class="chip">Web Pentesting</span><span class="chip">iptables</span>
+          <span class="chip">Wazuh (SIEM)</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">Análisis de logs</span><span class="chip">Kali Linux</span><span class="chip">Nmap</span><span class="chip">Metasploit</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">OWASP Top 10</span><span class="chip">Web Pentesting</span><span class="chip">iptables</span>
         </div>
       </div>
       <div class="skill-card reveal">
@@ -352,6 +352,17 @@
     <h2 data-i="proj_h2">Laboratorios y auditorías</h2>
     <p class="section-lede" data-i="proj_lede">Trabajo práctico documentado en GitHub. Cada proyecto incluye evidencias, comandos y conclusiones.</p>
     <div class="proj-grid">
+
+      <article class="proj reveal" data-href="https://github.com/TechAdminPro/home-soc-wazuh-lab" onclick="openRepo(event,'https://github.com/TechAdminPro/home-soc-wazuh-lab')" style="cursor:pointer">
+        <div class="proj-icon">🛡️</div>
+        <div class="proj-top">
+          <h3 data-i="p5_h">Home SOC Wazuh Lab</h3>
+          <span class="proj-tag t-green">Blue Team</span>
+        </div>
+        <p data-i="p5_p">Mini-SOC casero con Wazuh (Manager + Indexer + Dashboard), una víctima Ubuntu y un atacante Kali. Detección de fuerza bruta SSH, escaneo de puertos y modificación de /etc/passwd (FIM), con regla de correlación y decoder propios y tres informes de incidente mapeados a MITRE ATT&amp;CK.</p>
+        <div class="proj-stack"><span class="chip">Wazuh</span><span class="chip">SIEM</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">Hydra</span><span class="chip">FIM</span></div>
+        <a class="proj-link" href="https://github.com/TechAdminPro/home-soc-wazuh-lab" target="_blank" rel="noopener">&lt;/&gt; <span data-i="view_gh">Ver en GitHub</span> →</a>
+      </article>
 
       <article class="proj reveal" data-href="https://github.com/TechAdminPro/linux-hardening-lab" onclick="openRepo(event,'https://github.com/TechAdminPro/linux-hardening-lab')" style="cursor:pointer">
         <div class="proj-icon">🔐</div>
@@ -414,9 +425,9 @@
         </div>
         <div class="tl-item">
           <div class="tl-when">Oct 2023 — Mar 2024</div>
-          <h3 data-i="exp2_h">Security Assistant</h3>
+          <h3 data-i="exp2_h">Security &amp; Host Assistant</h3>
           <div class="org">Arsel Business S.L.</div>
-          <p data-i="exp2_p">Control de accesos y protocolos de seguridad física con cero incidentes. Coordinación de respuesta a incidentes y toma de decisiones rápida bajo presión — competencias trasladables a operaciones SOC.</p>
+          <p data-i="exp2_p">Control de accesos, apertura y cierre de tienda y gestión del flujo de clientes en tiendas de lujo (Louis Vuitton, Celine, Moncler), siguiendo protocolos de seguridad estrictos. Atención constante y reacción rápida bajo presión.</p>
         </div>
         <div class="tl-item">
           <div class="tl-when">2017 — <span data-i="present">Actualidad</span></div>
@@ -465,8 +476,8 @@
           <a class="clink" href="tel:+34648221519">
             <span class="ci">📞</span><span><span class="ct">Teléfono</span><br><span class="cv">+34 648 22 15 19</span></span>
           </a>
-          <a class="clink" href="https://linkedin.com/in/carlosmunaiz" target="_blank" rel="noopener">
-            <span class="ci">in</span><span><span class="ct">LinkedIn</span><br><span class="cv">/in/carlosmunaiz</span></span>
+          <a class="clink" href="https://www.linkedin.com/in/carlos-munaiz/" target="_blank" rel="noopener">
+            <span class="ci">in</span><span><span class="ct">LinkedIn</span><br><span class="cv">/in/carlos-munaiz</span></span>
           </a>
           <a class="clink" href="https://github.com/TechAdminPro" target="_blank" rel="noopener">
             <span class="ci">⌨️</span><span><span class="ct">GitHub</span><br><span class="cv">/TechAdminPro</span></span>
@@ -509,14 +520,14 @@ const i18n = {
   es:{
     nav_about:"Sobre mí",nav_skills:"Skills",nav_projects:"Proyectos",nav_path:"Trayectoria",nav_contact:"Contacto",
     hero_term:"root@carlos:~$ whoami",hero_h1:'Carlos Munaiz <span class="accent">Cossio</span>',
-    hero_role:"Junior Sistemas &amp; Seguridad",hero_role2:"Seguridad IT &amp; Pentesting",
+    hero_role:"Junior Sistemas &amp; Seguridad",hero_role2:"SOC &amp; Blue Team",
     hero_lede:"Recién graduado en administración de sistemas y ciberseguridad. Despliego y bastiono infraestructura Linux/Windows en mis laboratorios, y practico técnicas de seguridad ofensiva y defensiva. Busco mi primer rol centrado en seguridad donde apoyarme en mi base técnica y seguir creciendo.",
     hero_cv:"Descargar CV (PDF)",hero_projects:"Ver proyectos",
     meta_projects:"Proyectos de seguridad",meta_edu:"Formación oficial",meta_certs:"Certificaciones",meta_lang:"Inglés avanzado",
     about_eyebrow:"01 — Quién soy",about_h2:"Doble perfil: sistemas y seguridad",
     about_p1:"Soy <strong>Carlos Munaiz Cossio</strong>, recién graduado con una base doble poco habitual: administración de sistemas y ciberseguridad ofensiva y defensiva. En mis laboratorios he desplegado y bastionado infraestructura real en Linux y Windows, y dedico mi tiempo a entender cómo se rompen y cómo se protegen los sistemas.",
     about_p2:"Terminé el ciclo superior <strong>ASIR</strong> y un <strong>Máster en Ciberseguridad</strong> en la Fundación San Pablo CEU. Documento cada proyecto en GitHub y ahora mismo refuerzo mi formación con AWS, Python y plataformas como TryHackMe. Mi objetivo es claro: aportar valor en un equipo de seguridad, ya sea en un SOC, en pentesting o en bastionado de infraestructura.",
-    about_p3:"Tengo <strong>ganas de emprender</strong> y de seguir aprendiendo lo importante de mi campo. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.",
+    about_p3:"Donde más disfruto es en el lado defensivo: <strong>detección, análisis de logs y respuesta a incidentes</strong>. No me conformo con saber usar herramientas: quiero entender lo que pasa por debajo.",
     quick_h3:"// quick_facts",quick_loc:"Ubicación",quick_edu:"Formación",quick_focus:"Foco",quick_focus_v:"Seguridad ofensiva/defensiva",
     quick_lang:"Idiomas",quick_lang_v:"Español (nativo), Inglés C1",quick_avail:"Estado",quick_avail_v:"Disponible para incorporación",
     skills_eyebrow:"02 — Stack técnico",skills_h2:"Herramientas con las que trabajo",
@@ -528,10 +539,11 @@ const i18n = {
     p2_h:"Web Security Audit Lab",p2_p:"Auditoría web ofensiva sobre DVWA siguiendo metodología profesional. Identificación y explotación controlada de 6 vulnerabilidades (Brute Force, Command/SQL Injection, File Inclusion/Upload, criptografía débil), clasificadas con OWASP Top 10 y CVSS.",
     p3_h:"BadUSB Endpoint Analysis",p3_p:"Trabajo de Fin de Máster: análisis de ataques físicos BadUSB con Flipper Zero (HID injection) sobre Windows 11. Evaluación de la respuesta de Microsoft Defender y propuesta de mitigaciones técnicas y organizativas para entornos corporativos.",
     p4_h:"SYN Flood (DDoS) Lab",p4_p:"Simulación de un ataque de denegación de servicio SYN Flood con hping3 contra AlmaLinux, captura y análisis del tráfico con Wireshark, y aplicación de mitigaciones: SYN cookies, reverse path filtering y limitación de conexiones con iptables.",
+    p5_h:"Home SOC Wazuh Lab",p5_p:"Mini-SOC casero con Wazuh (Manager + Indexer + Dashboard), una víctima Ubuntu y un atacante Kali. Detección de fuerza bruta SSH, escaneo de puertos y modificación de /etc/passwd (FIM), con regla de correlación y decoder propios y tres informes de incidente mapeados a MITRE ATT&amp;CK.",
     view_gh:"Ver en GitHub",
     path_eyebrow:"04 — Trayectoria",path_h2:"Experiencia y formación",
     exp1_h:"Systems Administrator (Prácticas)",exp1_p:"Despliegue y mantenimiento de servidores web Apache/Nginx en Linux (−20% en tiempos de respuesta), gestión y bastionado de entornos WordPress, mejoras de SEO técnico y documentación de procedimientos.",
-    exp2_h:"Security Assistant",exp2_p:"Control de accesos y protocolos de seguridad física con cero incidentes. Coordinación de respuesta a incidentes y toma de decisiones rápida bajo presión — competencias trasladables a operaciones SOC.",
+    exp2_h:"Security &amp; Host Assistant",exp2_p:"Control de accesos, apertura y cierre de tienda y gestión del flujo de clientes en tiendas de lujo (Louis Vuitton, Celine, Moncler), siguiendo protocolos de seguridad estrictos. Atención constante y reacción rápida bajo presión.",
     exp3_h:"Hostelería (varios)",exp3_org:"Varios establecimientos",exp3_p:"Atención al cliente en entornos exigentes gestionando múltiples tareas en paralelo. Resiliencia, comunicación y gestión del estrés.",present:"Actualidad",
     edu_h:"🎓 Formación",edu1_h:"Máster en Ciberseguridad",edu2_h:"Técnico Superior ASIR",edu2_org:"Administración de Sistemas y Redes",
     cert1:"Networking",cert2:"En curso · 2026",cert3:"Pentesting · En curso",cert4:"Avanzado",
@@ -543,14 +555,14 @@ const i18n = {
   en:{
     nav_about:"About",nav_skills:"Skills",nav_projects:"Projects",nav_path:"Path",nav_contact:"Contact",
     hero_term:"root@carlos:~$ whoami",hero_h1:'Carlos Munaiz <span class="accent">Cossio</span>',
-    hero_role:"Junior Systems &amp; Security",hero_role2:"IT Security &amp; Pentesting",
+    hero_role:"Junior Systems &amp; Security",hero_role2:"SOC &amp; Blue Team",
     hero_lede:"Recent graduate in systems administration and cybersecurity. I deploy and harden Linux/Windows infrastructure in my labs and practice offensive and defensive security techniques. Looking for my first security-focused role where I can build on my technical foundation and keep growing.",
     hero_cv:"Download CV (PDF)",hero_projects:"View projects",
     meta_projects:"Security projects",meta_edu:"Formal education",meta_certs:"Certifications",meta_lang:"Advanced English",
     about_eyebrow:"01 — Who I am",about_h2:"Dual profile: systems & security",
     about_p1:"I'm <strong>Carlos Munaiz Cossio</strong>, a recent graduate with an uncommon dual foundation: systems administration and offensive/defensive cybersecurity. In my labs I've deployed and hardened real Linux and Windows infrastructure, and I spend my time understanding how systems break and how they're protected.",
     about_p2:"I completed the <strong>ASIR</strong> higher diploma and a <strong>Master's in Cybersecurity</strong> at Fundación San Pablo CEU. I document every project on GitHub and I'm currently strengthening my training with AWS, Python and platforms like TryHackMe. My goal is clear: to add value to a security team — whether in a SOC, in pentesting or in infrastructure hardening.",
-    about_p3:"I have an <strong>entrepreneurial drive</strong> and want to keep learning what truly matters in my field. I'm not satisfied with just using tools: I want to understand what happens underneath.",
+    about_p3:"Where I enjoy working most is the defensive side: <strong>detection, log analysis and incident response</strong>. I'm not satisfied with just using tools: I want to understand what happens underneath.",
     quick_h3:"// quick_facts",quick_loc:"Location",quick_edu:"Education",quick_focus:"Focus",quick_focus_v:"Offensive/defensive security",
     quick_lang:"Languages",quick_lang_v:"Spanish (native), English C1",quick_avail:"Status",quick_avail_v:"Available to start",
     skills_eyebrow:"02 — Tech stack",skills_h2:"Tools I work with",
@@ -562,10 +574,11 @@ const i18n = {
     p2_h:"Web Security Audit Lab",p2_p:"Offensive web audit of DVWA following a professional methodology. Identification and controlled exploitation of 6 vulnerabilities (Brute Force, Command/SQL Injection, File Inclusion/Upload, weak cryptography), mapped with OWASP Top 10 and CVSS.",
     p3_h:"BadUSB Endpoint Analysis",p3_p:"Master's thesis: analysis of physical BadUSB attacks with a Flipper Zero (HID injection) on Windows 11. Evaluation of Microsoft Defender's response and a proposal of technical and organizational mitigations for corporate environments.",
     p4_h:"SYN Flood (DDoS) Lab",p4_p:"Simulation of a SYN Flood denial-of-service attack with hping3 against AlmaLinux, traffic capture and analysis with Wireshark, and mitigations: SYN cookies, reverse path filtering and connection limiting with iptables.",
+    p5_h:"Home SOC Wazuh Lab",p5_p:"Home mini-SOC with Wazuh (Manager + Indexer + Dashboard), an Ubuntu victim and a Kali attacker. Detection of SSH brute force, port scanning and /etc/passwd tampering (FIM), with a custom correlation rule and decoder and three incident reports mapped to MITRE ATT&amp;CK.",
     view_gh:"View on GitHub",
     path_eyebrow:"04 — Path",path_h2:"Experience & education",
     exp1_h:"Systems Administrator (Internship)",exp1_p:"Deployed and maintained Apache/Nginx web servers on Linux (−20% response times), managed and hardened WordPress environments, implemented technical SEO improvements and documented procedures.",
-    exp2_h:"Security Assistant",exp2_p:"Access control and physical security protocols with zero incidents. Incident response coordination and fast decision-making under pressure — skills transferable to SOC operations.",
+    exp2_h:"Security &amp; Host Assistant",exp2_p:"Access control, store opening and closing, and customer flow management in luxury retail stores (Louis Vuitton, Celine, Moncler), following strict security protocols. Constant alertness and quick reactions under pressure.",
     exp3_h:"Hospitality (various)",exp3_org:"Various establishments",exp3_p:"Customer service in high-demand environments managing multiple concurrent tasks. Resilience, communication and stress management.",present:"Present",
     edu_h:"🎓 Education",edu1_h:"Master's in Cybersecurity",edu2_h:"Higher Technician — ASIR",edu2_org:"Network & Systems Administration",
     cert1:"Networking",cert2:"In progress · 2026",cert3:"Pentesting · In progress",cert4:"Advanced",
